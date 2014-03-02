@@ -1,5 +1,7 @@
 package joan.pastor.joappaspe;
 
+import java.util.HashMap;
+
 import android.os.Bundle;
 import android.preference.PreferenceManager.OnActivityResultListener;
 import android.app.Activity;
@@ -10,10 +12,11 @@ import android.view.Menu;
 public class OnDinem extends Activity {
 
 	public enum RESTAURANTS {
-		NONE, VELLA, CONSERVA, BURGUER_KING, KEBAB
+		NONE, VELLA, CONSERVA, BURGER_KING, KEBAB
 	};
-
-	public class DecisionNode {
+    private HashMap<RESTAURANTS, String> restaurant_name;
+    
+  	public class DecisionNode {
 
 		String questionId;
 		boolean final_node;
@@ -43,9 +46,7 @@ public class OnDinem extends Activity {
 		
 		public boolean isFinal() {
 			return final_node;
-			
 		}
-
 	}
 
 	private DecisionNode actual;
@@ -56,11 +57,13 @@ public class OnDinem extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		restaurant_name = new HashMap<RESTAURANTS, String>();
+    	restaurant_name.put(RESTAURANTS.VELLA, getString(R.string.vella));
+    	restaurant_name.put(RESTAURANTS.CONSERVA, getString(R.string.conserva));
+    	restaurant_name.put(RESTAURANTS.BURGER_KING, getString(R.string.burger));
+    	restaurant_name.put(RESTAURANTS.KEBAB, getString(R.string.kebab));
+  
 		
-		// TextView question = (TextView) findViewById(R.id.question);
-		// question.setText("Ojete");
-
 		// Build the tree
 		DecisionNode node1 = new DecisionNode(getString(R.string.outside));
 		DecisionNode node2 = new DecisionNode(getString(R.string.marcos));
@@ -69,7 +72,7 @@ public class OnDinem extends Activity {
 		DecisionNode node5 = new DecisionNode(getString(R.string.pinxos));
 		DecisionNode kebab = new DecisionNode(RESTAURANTS.KEBAB);
 		DecisionNode vella = new DecisionNode(RESTAURANTS.VELLA);
-		DecisionNode bk = new DecisionNode(RESTAURANTS.BURGUER_KING);
+		DecisionNode bk = new DecisionNode(RESTAURANTS.BURGER_KING);
 		DecisionNode conserva = new DecisionNode(RESTAURANTS.CONSERVA);
 
 		node1.setChildren(node3, node2);
@@ -82,7 +85,6 @@ public class OnDinem extends Activity {
 
 		Intent intent = new Intent(this, QuestionActivity.class);
 		intent.putExtra(QUESTION_MESSAGE, actual.questionId);
-
 		
 		int requestCode = 0;
 		startActivityForResult(intent, requestCode);
@@ -111,7 +113,7 @@ public class OnDinem extends Activity {
 	    	RESTAURANTS decision = actual.result;
 	    	
 	    	Intent intent = new Intent(this, OnDinemResult.class);
-	    	intent.putExtra(RESULT_MESSAGE, decision.toString());
+	    	intent.putExtra(RESULT_MESSAGE, restaurant_name.get(decision));
 	    	startActivity(intent);
 	    	Log.i("DECISION", decision.toString());
 	    	finish();

@@ -22,10 +22,7 @@ public class QuestionActivity extends Activity {
 
 		final View controlsView = findViewById(R.id.response_buttons);
 		final TextView  contentView = (TextView) findViewById(R.id.question);
-
-					
-				
-				// Set up the user interaction to manually show or hide the system UI.
+        // Set up the user interaction to manually show or hide the system UI.
 		
 		
 		// My staff
