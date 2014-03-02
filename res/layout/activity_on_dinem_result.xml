@@ -17,15 +17,24 @@
 
         <TextView
             android:id="@+id/result"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
             android:gravity="center"
             android:keepScreenOn="true"
             android:text="@string/dummy_content"
             android:textColor="#33b5e5"
             android:textSize="50sp"
-            android:textStyle="bold" />
-
+            android:textStyle="bold"
+             />
+			
+        <ImageView
+            android:id="@+id/picture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dip"
+             />
+		
     </LinearLayout>
 
 </RelativeLayout>

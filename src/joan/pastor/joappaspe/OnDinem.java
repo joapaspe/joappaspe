@@ -9,18 +9,18 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 
+import joan.pastor.joappaspe.Restaurants.RESTAURANTS;
+
 public class OnDinem extends Activity {
 
-	public enum RESTAURANTS {
-		NONE, VELLA, CONSERVA, BURGER_KING, KEBAB
-	};
-    private HashMap<RESTAURANTS, String> restaurant_name;
+
+    
     
   	public class DecisionNode {
 
 		String questionId;
 		boolean final_node;
-		RESTAURANTS result;
+		Restaurants.RESTAURANTS result;
 		DecisionNode yes_answer;
 		DecisionNode no_answer;
 
@@ -57,12 +57,7 @@ public class OnDinem extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		restaurant_name = new HashMap<RESTAURANTS, String>();
-    	restaurant_name.put(RESTAURANTS.VELLA, getString(R.string.vella));
-    	restaurant_name.put(RESTAURANTS.CONSERVA, getString(R.string.conserva));
-    	restaurant_name.put(RESTAURANTS.BURGER_KING, getString(R.string.burger));
-    	restaurant_name.put(RESTAURANTS.KEBAB, getString(R.string.kebab));
-  
+		
 		
 		// Build the tree
 		DecisionNode node1 = new DecisionNode(getString(R.string.outside));
@@ -113,7 +108,8 @@ public class OnDinem extends Activity {
 	    	RESTAURANTS decision = actual.result;
 	    	
 	    	Intent intent = new Intent(this, OnDinemResult.class);
-	    	intent.putExtra(RESULT_MESSAGE, restaurant_name.get(decision));
+	    	intent.putExtra(RESULT_MESSAGE, actual.result);
+	    	
 	    	startActivity(intent);
 	    	Log.i("DECISION", decision.toString());
 	    	finish();

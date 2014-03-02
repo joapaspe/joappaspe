@@ -4,10 +4,15 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
+import joan.pastor.joappaspe.Restaurants.RESTAURANTS;
+import joan.pastor.joappaspe.Restaurants;
 
 public class OnDinemResult extends Activity {
 
+
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -15,10 +20,22 @@ public class OnDinemResult extends Activity {
 		
 		// My staff
 		Intent intent = getIntent();
-		String question_message = intent.getStringExtra(OnDinem.RESULT_MESSAGE);
+		RESTAURANTS eDecision = (RESTAURANTS) intent.getSerializableExtra(OnDinem.RESULT_MESSAGE);
+		
+		Restaurants rDecision;
+		try {
+			rDecision = Restaurants.restaurants_resources.get(eDecision);
+		}
+		catch(Exception e){
+			rDecision = Restaurants.restaurants_resources.get(RESTAURANTS.VELLA);
+		}
 		
 		TextView result = (TextView) findViewById(R.id.result);
-		result.setText(question_message);
+		result.setText(rDecision.idName);
+		
+		ImageView img = (ImageView) findViewById(R.id.picture);
+		img.setImageResource(rDecision.idImg);
+		
 	}
 
 	@Override
