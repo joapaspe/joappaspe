@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="outside">¿Comemos fuera?</string>
+    <string name="marcos_vella">¿Quiere ir a la Vella?</string>
+    <string name="marcos">¿Está Marcos?</string>
+    <string name="pinxos">¿Hay pinchos, ternera o ensalada &quot;C#&quot;?</string>
+    
+</resources>

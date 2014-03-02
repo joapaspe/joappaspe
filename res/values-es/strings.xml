@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">joappaspe</string>
+    <string name="action_settings">Configuración</string>
+    <string name="hello_world">JoAPPaspe</string>
+    <string name="on_dinem">¿Dónde comer?</string>
+    <string name="exit">Salir</string>
+    <string name="title_activity_question">Dónde comer</string>
+    <string name="yes">SÍ</string>
+    <string name="no">NO</string>
+    <string name="title_activity_on_dinem">Donde comer</string>
+    <string name="title_activity_on_dinem_result">Voto</string>
+
+</resources>
