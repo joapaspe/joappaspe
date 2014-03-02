@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">joappaspe</string>
+    <string name="action_settings">Configuració</string>
+    <string name="hello_world">JoAPPaspe</string>
+    <string name="on_dinem">¿On Dinem?</string>
+    <string name="exit">Eixir</string>
+    <string name="title_activity_question">On Dinem</string>
+    <string name="yes">SÍ</string>
+    <string name="no">NO</string>
+    <string name="title_activity_on_dinem">On Dinem</string>
+    <string name="title_activity_on_dinem_result">Jo Vote</string>
+
+</resources>
